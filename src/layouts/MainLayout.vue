@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar style="background-color: rgb(79, 131, 191);">
         <q-btn
           flat
           dense
@@ -10,11 +10,13 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
-        <q-toolbar-title>
+        <q-avatar size="100px" icon="terminal">
+        </q-avatar>
+        <q-toolbar-title style="font-size:35px;
+                                font-family:'system-ui'  
+                                ">
           Cristhian Peverelli
         </q-toolbar-title>
-
       </q-toolbar>
     </q-header>
 
@@ -22,8 +24,9 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      
     >
-      <q-list>
+      <q-list padding>
         <q-item-label header>
           Everything you need to know
         </q-item-label>
@@ -39,6 +42,15 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer bordered class="bg-grey-8 text-white">
+      <q-toolbar>
+        <q-toolbar-title style="text-align: center; font-size:15px">
+          Built in Quasar by Cristhian
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
+    
   </q-layout>
 </template>
 
@@ -55,23 +67,23 @@ const linksList = [
     title: 'Home',
     caption: 'My biography',
     icon: 'account_circle',
-    link: 'https://quasar.dev'
+    link: '/'
   },
   {
     title: 'Education',
     caption: 'My educational history',
     icon: 'school',
-    link: 'https://github.com/quasarframework'
+    link: '/'
   },
   {
     title: 'Work Experience',
     caption: 'My work experiences',
     icon: 'badge',
-    link: 'https://chat.quasar.dev'
+    link: '/work'
   },
   {
     title: 'Projects',
-    caption: 'Personal projects I have worked into',
+    caption: 'Personal projects I have been working to',
     icon: 'build',
     link: 'https://github.com/CristhianPeverelli'
   },
