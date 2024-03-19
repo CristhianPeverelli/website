@@ -35,6 +35,7 @@
           v-for="link in linksList"
           :key="link.title"
           v-bind="link"
+          @click="route(link)"
         />
       </q-list>
     </q-drawer>
@@ -43,10 +44,10 @@
       <router-view />
     </q-page-container>
 
-    <q-footer bordered class="bg-grey-8 text-white">
+    <q-footer bordered class="bg-grey-65 text-white">
       <q-toolbar>
         <q-toolbar-title style="text-align: center; font-size:15px">
-          Built in Quasar by Cristhian
+          Built in <a href="https://quasar.dev/" style="color:wheat;">Quasar</a> with ❤︎
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -67,25 +68,29 @@ const linksList = [
     title: 'Home',
     caption: 'My biography',
     icon: 'account_circle',
-    link: '/'
+    route: '/',
+    link: ''
   },
   {
     title: 'Education',
     caption: 'My educational history',
     icon: 'school',
-    link: '/'
+    route: '/',
+    link: ''
   },
   {
     title: 'Work Experience',
     caption: 'My work experiences',
     icon: 'badge',
-    link: '/work'
+    route: '/#/work',
+    link: ''
   },
   {
     title: 'Projects',
     caption: 'Personal projects I have been working to',
     icon: 'build',
-    link: 'https://github.com/CristhianPeverelli'
+    route: '/#/projects',
+    link: ''
   },
   {
     title: 'GitHub Profile',
@@ -107,15 +112,23 @@ const linksList = [
   },
   {
     title: 'Contact me',
-    caption: 'Click for Telegram or cristhian.peverelli@gmail.com',
+    caption: 'via Telegram',
     icon: 'favorite',
     link: 'https://t.me/nonsonopeve'
   }
 ]
 
-const leftDrawerOpen = ref(false)
+const leftDrawerOpen = ref(true)
 
 function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value
+}
+
+function route (item) {
+  if (item.link != '') {
+    window.open(item.link, '_blank').focus();
+  }else{
+    window.location.href = item.route;
+  }
 }
 </script>

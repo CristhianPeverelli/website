@@ -1,9 +1,8 @@
 <template>
   <q-item
     clickable
-    tag="a"
+    label="a"
     target="_blank"
-    :href="props.link"
   >
     <q-item-section
       v-if="props.icon"
@@ -43,6 +42,11 @@ const props = defineProps({
   icon: {
     type: String,
     default: ''
-  }
+  },
+
+  route: {
+    type: String,
+    default: ''
+  },
 })
 </script>
