@@ -1,6 +1,7 @@
 <template>
     <q-page class="flex flex-center">
-        <h1>Sei nella pagina dei progetti</h1>
+      <h1>Projects Section</h1>
+      <h1>Work in progress</h1>
     </q-page>
 </template>
 

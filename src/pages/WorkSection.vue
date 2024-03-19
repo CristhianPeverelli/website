@@ -1,8 +1,8 @@
 <template>
     <q-page class="flex flex-center">
-        <h1>Sei nella pagina del lavoro</h1>
+      <h1>Work Section</h1>
+      <h1>Work in progress</h1>
     </q-page>
-
 </template>
 
 <script setup>
