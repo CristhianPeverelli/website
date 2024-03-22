@@ -28,7 +28,7 @@
             <q-avatar size="80px" icon="code" style="margin-right: 60px"/>
           </template>
           <template #heading>Projects</template>
-          For the whole section of the non-commercial projects I've made, refers to the specific section on the left.<br>Otherwise, you can go on my <a href="https://github.com/CristhianPeverelli/" target="_blank" rel="noopener">GitHub profile</a> to see directly all the code.
+          For the whole section of the personal projects I've been working on, refers to the specific section on the left.<br>Otherwise, you can go on my <a href="https://github.com/CristhianPeverelli/" target="_blank" rel="noopener">GitHub profile</a> to see directly all the code.
         </InformationItem>
 
         <InformationItem>
@@ -63,7 +63,7 @@
             <q-avatar size="80px" icon="sports_esports" style="margin-right: 60px"/>
           </template>
           <template #heading>Passions and Hobbies</template>
-          I am a lover of video games, mainly MMORPGs such as <strong>World of Warcraft</strong> but also industrial management games such as <strong>Factorio</strong> or 
+          I'm into video games, mainly MMORPGs such as <strong>World of Warcraft</strong> but also industrial management games such as <strong>Factorio</strong> or 
           <strong>Dyson Sphere Programm</strong>. I also participated together with a group of 20 people in 2 international World of Warcraft tournaments, finishing in second 
           and then third place. 
           <br/>I think that video games provide 2 enormous benefits, first of all they allow you to release some stress and stimulate the brain a lot. 
@@ -97,29 +97,3 @@ import InformationItem from './InformationItem.vue'
 
 </script>
 
-<style scoped>
-.item-card {
-  max-width: 98%;
-  margin: auto;
-  padding: 20px;
-  margin-bottom: 3px;
-}
-
-.biography-page {
-  padding: 20px;
-}
-
-.item-card {
-  margin-bottom: 20px;
-}
-
-.biography-title {
-  font-size: 18px;
-  margin-left: 10px;
-}
-
-.item-text {
-  font-size: 16px;
-  line-height: 1.6;
-}
-</style>

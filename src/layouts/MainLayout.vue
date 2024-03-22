@@ -45,12 +45,29 @@
     </q-page-container>
 
     <q-footer bordered class="bg-grey-65 text-white">
+      <div class="row justify-between fab">
+        <q-fab
+          v-model="fabRight"
+          vertical-actions-align="right"
+          color="secondary"
+          glossy
+          icon="keyboard_arrow_up"
+          direction="up"
+          label="Contacts"
+        >
+          <q-fab-action label-position="left" color="primary" @click="onClick('Email')" icon="mail" label="Email" />
+          <q-fab-action label-position="left" color="light-blue" @click="onClick('LinkedIn')" icon="verified" label="LinkedIn" />
+          <q-fab-action label-position="left" color="grey" @click="onClick('GitHub')" icon="code" label="GitHub" />
+        </q-fab>
+      </div>
       <q-toolbar>
         <q-toolbar-title style="text-align: center; font-size:15px">
           Built in <a href="https://quasar.dev/" style="color:wheat;">Quasar</a> with ❤︎
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
+
+    
     
   </q-layout>
 </template>
@@ -80,7 +97,7 @@ const linksList = [
   },
   {
     title: 'Work Experience',
-    caption: 'My work experiences',
+    caption: 'My work experience',
     icon: 'badge',
     route: '/#/work',
     link: ''
@@ -132,3 +149,70 @@ function route (item) {
   }
 }
 </script>
+
+<script>
+export default {
+  methods: {
+    onClick(label) {
+      switch (label) {
+        case 'Email':
+          window.location.href = 'mailto:cristhian.peverelli@gmail.com?subject=Super%20Professional%20Business%20Mail%20:)&body=Hi%20Cristhian,';
+          break;
+        case 'LinkedIn':
+          window.location.href = 'https://www.linkedin.com/in/cristhian-peverelli/';
+          break;
+        case 'GitHub':
+          window.location.href = 'https://github.com/CristhianPeverelli';
+          break;
+        default:
+          console.log("Error on fab: ",label);
+          break;
+      }
+    }
+  },
+  setup () {
+    return {
+      fabLeft: ref(true),
+      fabCenter: ref(true),
+      fabRight: ref(true),
+    }
+  }
+};
+
+</script>
+
+<style scoped>
+.fab {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 999; /* Ensure it's above other content */
+}
+</style>
+
+<style>
+.item-card {
+  max-width: 98%;
+  margin: auto;
+  padding: 20px;
+  margin-bottom: 3px;
+}
+
+.biography-page {
+  padding: 20px;
+}
+
+.item-card {
+  margin-bottom: 20px;
+}
+
+.biography-title {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.item-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+</style>
