@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar style="background-color: rgb(79, 131, 191);">
+      <q-toolbar class="custom-bar">
         <q-btn
           flat
           dense
@@ -10,7 +10,7 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-        <q-avatar size="100px" icon="terminal">
+        <q-avatar size="60px" icon="terminal">
         </q-avatar>
         <q-toolbar-title style="font-size:35px;
                                 font-family:'system-ui'  
@@ -20,11 +20,10 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
+    <q-drawer class="custom-drawer"
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      
     >
       <q-list padding>
         <q-item-label header>
@@ -44,30 +43,27 @@
       <router-view />
     </q-page-container>
 
-    <q-footer bordered class="bg-grey-65 text-white">
-      <div class="row justify-between fab">
-        <q-fab
-          v-model="fabRight"
-          vertical-actions-align="right"
-          color="secondary"
-          glossy
-          icon="keyboard_arrow_up"
-          direction="up"
-          label="Contacts"
-        >
-          <q-fab-action label-position="left" color="primary" @click="onClick('Email')" icon="mail" label="Email" />
-          <q-fab-action label-position="left" color="light-blue" @click="onClick('LinkedIn')" icon="verified" label="LinkedIn" />
-          <q-fab-action label-position="left" color="grey" @click="onClick('GitHub')" icon="code" label="GitHub" />
-        </q-fab>
-      </div>
-      <q-toolbar>
-        <q-toolbar-title style="text-align: center; font-size:15px">
-          Built in <a href="https://quasar.dev/" style="color:wheat;">Quasar</a> with ❤︎
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-footer>
-
-    
+    <div class="row justify-between fab">
+      <q-fab
+        v-model="fabRight"
+        vertical-actions-align="right"
+        color="secondary"
+        glossy
+        icon="keyboard_arrow_up"
+        direction="up"
+        label="Contacts"
+      >
+        <q-fab-action label-position="left" color="primary" @click="onClick('Email')" icon="mail" label="Email" />
+        <q-fab-action label-position="left" color="light-blue" @click="onClick('LinkedIn')" icon="verified" label="LinkedIn" />
+        <q-fab-action label-position="left" color="grey" @click="onClick('GitHub')" icon="code" label="GitHub" />
+      </q-fab>
+    </div>
+      
+    <q-toolbar class="custom-bar text-center">
+      <q-toolbar-title style="font-size:12px; color:white">
+        Built in <a href="https://quasar.dev/" style="color:wheat;">Quasar</a> with ❤︎
+      </q-toolbar-title>
+    </q-toolbar>
     
   </q-layout>
 </template>
@@ -184,18 +180,19 @@ export default {
 <style scoped>
 .fab {
   position: fixed;
-  bottom: 20px; /* Adjust as needed */
-  right: 20px; /* Adjust as needed */
-  z-index: 999; /* Ensure it's above other content */
+  bottom: 20px; 
+  right: 20px; 
+  z-index: 999;
 }
 </style>
 
 <style>
 .item-card {
-  max-width: 98%;
+  width: 102.06%;
   margin: auto;
-  padding: 20px;
+  margin-left: -16px;
   margin-bottom: 3px;
+  padding-left: 2%;
 }
 
 .biography-page {
@@ -214,5 +211,16 @@ export default {
 .item-text {
   font-size: 16px;
   line-height: 1.6;
+}
+
+.custom-bar{
+  background-color: #f0f0f0; 
+  background-image: url(../assets/bar_bg.jpg); 
+  background-size: cover;
+  background-position: center; 
+}
+
+.custom-drawer{
+  background-color: #e4edff; 
 }
 </style>

@@ -1,6 +1,34 @@
 <template>
-  <q-page style="margin-top:10px">
-    <q-card class="item-card" >
+  <q-page>
+    <div class="q-pa-md bg-white">
+      <q-parallax style="width:102.06%; margin-left:-16px; margin-top:-16px">
+        <template v-slot:media>
+          <img src="../assets/bg.jpg">
+        </template>
+
+        <template v-slot:content="scope">
+          <div
+            class="absolute column items-center"
+            :style="{
+              opacity: 1 + (1 - scope.percentScrolled) * 0.1,
+              top: (scope.percentScrolled * 46) + '%',
+              left: 0,
+              right: 0,
+            }"
+          >
+            <div class="text-h3 text-white text-center">
+              <div style="margin-bottom:15px">
+                <q-spinner-clock
+                  color="white"
+                  size="3em"
+                />
+              </div>
+                <p class="text-h6">Hi, I'm Cristhian and I'm</p>
+                <p><span class="animated-word">{{ currentWord }}</span></p>
+            </div>
+          </div>
+        </template>
+      </q-parallax>
       <div style="margin-left:60px">
 
         <InformationItem>
@@ -64,7 +92,7 @@
           </template>
           <template #heading>Passions and Hobbies</template>
           I'm into video games, mainly MMORPGs such as <strong>World of Warcraft</strong> but also industrial management games such as <strong>Factorio</strong> or 
-          <strong>Dyson Sphere Programm</strong>. I also participated together with a group of 20 people in 2 international World of Warcraft tournaments, finishing in second 
+          <strong>Dyson Sphere Program</strong>. I also participated together with a group of 20 people in 2 international World of Warcraft tournaments, finishing in second 
           and then third place. 
           <br/>I think that video games provide 2 enormous benefits, first of all they allow you to release some stress and stimulate the brain a lot. 
           <br/>I am also passionate about football having played it at a competitive level for 12 years, and finally I practice a bit of chess in my free time.
@@ -76,13 +104,12 @@
           </template>
           <template #heading>Contact Me</template>
       
-          Email: <strong>cristhian.peverelli@gmail.com</strong> <br/>
-          <a href="https://www.linkedin.com/in/cristhian-peverelli/" target="_blank" rel="noopener">LinkedIn</a> <br/>
+          ✶ Email: <strong>cristhian.peverelli@gmail.com</strong> <br/>
+          ✶ <a href="https://www.linkedin.com/in/cristhian-peverelli/" target="_blank" rel="noopener">LinkedIn</a> <br/>
           Other refs on the left menu :)
         </InformationItem>
-
       </div>
-    </q-card>    
+    </div>  
   </q-page>
 </template>
 
@@ -94,6 +121,48 @@ defineOptions({
 
 <script>
 import InformationItem from './InformationItem.vue'
-
+export default {
+  data() {
+    return {
+      words: ['a Developer', 'an IT Technician', 'a Student'],
+      currentWordIndex: 0,
+      currentTypedWord: '',
+      wordIndex: 0,
+      timer: null
+    }
+  },
+  computed: {
+    currentWord() {
+      return this.currentTypedWord;
+    }
+  },
+  created() {
+    this.startAnimation();
+  },
+  unmounted() {
+    clearInterval(this.timer);
+  },
+  methods: {
+    startAnimation() {
+      this.timer = setInterval(() => {
+        if (this.wordIndex < this.words[this.currentWordIndex].length) {
+          this.currentTypedWord += this.words[this.currentWordIndex][this.wordIndex];
+          this.wordIndex++;
+        } else {
+          this.currentTypedWord = '';
+          this.wordIndex = 0;
+          this.currentWordIndex = (this.currentWordIndex + 1) % this.words.length;
+        }
+      }, 200);
+    }
+  }
+}
 </script>
 
+<style scoped>
+.animated-word {
+  display: inline-block;
+  overflow: hidden;
+  border-right: solid white;
+}
+</style>
