@@ -45,7 +45,6 @@
 
     <div class="row justify-between fab">
       <q-fab
-        v-model="fabRight"
         vertical-actions-align="right"
         color="secondary"
         glossy
@@ -64,7 +63,7 @@
         Built in <a href="https://quasar.dev/" style="color:wheat;">Quasar</a> with ❤︎
       </q-toolbar-title>
     </q-toolbar>
-    
+
   </q-layout>
 </template>
 
@@ -125,9 +124,9 @@ const linksList = [
   },
   {
     title: 'Contact me',
-    caption: 'via Telegram',
+    caption: 'via Email',
     icon: 'favorite',
-    link: 'https://t.me/nonsonopeve'
+    link: 'mailto:cristhian.peverelli@gmail.com?subject=Super%20Professional%20Business%20Mail%20:)&body=Hi%20Cristhian,'
   }
 ]
 
@@ -148,6 +147,7 @@ function route (item) {
 
 <script>
 export default {
+
   methods: {
     onClick(label) {
       switch (label) {
@@ -164,13 +164,6 @@ export default {
           console.log("Error on fab: ",label);
           break;
       }
-    }
-  },
-  setup () {
-    return {
-      fabLeft: ref(true),
-      fabCenter: ref(true),
-      fabRight: ref(true),
     }
   }
 };

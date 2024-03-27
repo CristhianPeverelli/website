@@ -106,7 +106,7 @@
       
           ✶ Email: <strong>cristhian.peverelli@gmail.com</strong> <br/>
           ✶ <a href="https://www.linkedin.com/in/cristhian-peverelli/" target="_blank" rel="noopener">LinkedIn</a> <br/>
-          Other refs on the left menu :)
+          Other refs on the right corner button :)
         </InformationItem>
       </div>
     </div>  
